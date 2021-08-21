@@ -12,16 +12,29 @@ if year == '0' :
     print("错误，退出执行中")
     exit()
 elif month == '0' :
-    url = 'https://pic.tjsky.net/pixiv/pic/' + year + '/'
+    i = 1
+    j = 1
+    while i <= 12:
+        while j <= 31:
+            url = 'https://pic.tjsky.net/pixiv/pic/' + year + '/' + str(i) + '/' + str(j) +'_daily/'
+            sys.argv = ['you-get','-o',directory,url]
+            you_get.main()
+            j+=1
+        i+=1
     os.makedirs(where + year + '/')
     directory = where + year + '/'
 elif day == '0' :
-    url = 'https://pic.tjsky.net/pixiv/pic/' + year + '/' + month + '/'
+    f=1
+    while f<31:
+        url = 'https://pic.tjsky.net/pixiv/pic/' + year + '/' + month + '/' + str(f) +'_daily/'
+        sys.argv = ['you-get','-o',directory,url]
+        you_get.main()
+        f+=1
     os.makedirs(where + year + '/' + month + '/')
     directory = where + year + '/' + month + '/'
 else:
     url = 'https://pic.tjsky.net/pixiv/pic/' + year + '/' + month + '/' + day +'_daily/'
     os.makedirs(where + year + '/' + month + '/'+ day +'_daily/')
     directory = where + year + '/' + month + '/'+ day +'_daily/'
-sys.argv = ['you-get','-o',directory,url]
-you_get.main()
+    sys.argv = ['you-get','-o',directory,url]
+    you_get.main()
