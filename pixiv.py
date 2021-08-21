@@ -13,15 +13,15 @@ if year == '0' :
     exit()
 elif month == '0' :
     url = 'https://pic.tjsky.net/pixiv/pic/' + year + '/'
-    os.mkdir(where + year + '/')
+    os.makedirs(where + year + '/')
     directory = where + year + '/'
 elif day == '0' :
     url = 'https://pic.tjsky.net/pixiv/pic/' + year + '/' + month + '/'
-    os.mkdir(where + year + '/' + month + '/')
+    os.makedirs(where + year + '/' + month + '/')
     directory = where + year + '/' + month + '/'
 else:
     url = 'https://pic.tjsky.net/pixiv/pic/' + year + '/' + month + '/' + day +'_daily/'
-    os.mkdir(where + year + '/' + month + '/'+ day +'_daily/')
+    os.makedirs(where + year + '/' + month + '/'+ day +'_daily/')
     directory = where + year + '/' + month + '/'+ day +'_daily/'
 sys.argv = ['you-get','-o',directory,url]
 you_get.main()
